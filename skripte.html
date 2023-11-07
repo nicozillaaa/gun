@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skripte</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+      <h1 id="header">Meine eigene Webseite</h1>
+      <nav id="menu">
+          <a class="disabled" href="index.html"> Start</a>
+          <a class="active" href="skripte.html"> Skripte </a>
+          <a class="disabled" href="tabelle.html"> Tabelle </a>
+          <a class="disabled" href="text.html"> Text </a>
+          <a class="disabled" href="post.html"> Post </a>
+          <a class="disabled" href="links.html"> Links </a>
+          <a class="disabled" href="optionen.html"> Optionen </a>
+      </nav>
+  </header>
+    <main id="content">
+        <h2>Skripte</h2>
+        <h3>Javascript</h3>
+
+        <script>
+          document.write("<h3>Guten Tag</h3>");
+          document.write("Guten Tag");
+
+          document.write("<hr></hr>");
+
+          x=17;
+          y=4;
+          z= x+y;
+          document.write(z);
+
+          document.write("<hr></hr>");
+
+          t1= "Jochen geht";
+          t2= "mal mit dem Hund raus."
+
+          Leer= " ";
+          document.write(t1 + Leer + z + Leer + t2);
+
+          document.write("<hr></hr>");
+          
+          document.write(document.title);
+          document.write("<hr></hr>");
+
+          document.write("Fallunterscheidung<br><br>");
+          Regen = false;
+          if(Regen){
+            alert("Schirm mitnehmen");
+          }
+          else{
+            alert("T-Shirtwetter");
+          }
+
+          document.write("<hr></hr>");
+
+      
+
+          function zeit(x){
+            if(x < 10){
+            x= "0" + x;
+            } 
+
+            return x;
+          } 
+
+
+          
+          jetzt = new Date();
+
+          var Tag= zeit(jetzt.getDate());
+          var Monat= zeit(jetzt.getMonth()) +1;
+          var Jahr= zeit(jetzt.getFullYear());
+
+          var Stunde= zeit(jetzt.getHours());
+          var Minute= zeit(jetzt.getMinutes());
+          var Sekunde=zeit(jetzt.getSeconds());
+  
+
+          document.write("<div style='border: 1px solid black; text-align: center;'>");
+          document.write(Tag + "." + Monat + "." + Jahr + "|" + Stunde + ":" + Minute + ":" + Sekunde);
+
+          document.write("</div>");
+          document.write("<hr>");
+  
+
+
+
+
+        </script>
+
+      <h3 style= color:red;>Dynamischer Text:</h3>
+
+        <h1 
+        onmouseover="x=innerHTML; this.innerHTML='neuer Text'"
+        onmouseout="this.innerHTML=x"
+        >Hier steht Text drin</h1>
+
+      <h3 style= color:red;>Hintergrund ändern:</h3> 
+
+        <div>Hintergrund ändern:</div>
+        
+        <br>
+
+        <button style='background-color: orange'
+        onclick="document.body.style.background='#FFCC88'"
+        >Orange</button>
+        <button style='background-color: white'
+        onclick="document.body.style.background='white'"
+        >Weiß</button>
+
+
+
+
+      <h3 style= color:red;>Taschenrechner:</h3>
+
+        <form style="border: 2px solid black; width: 300px; padding: 30px;">
+    
+                  
+          <input id="in1" type="text" size="6" value="">
+          <input id="f" type="text" size="" value="" disabled style="border:none; width:15px;">
+          <input id="in2" type="text" size="6" value="">
+          =
+          <input id="out" type="text" size="6" value="" disabled>
+
+          <br>
+          <br>
+
+          <input id="clear" type="reset" value="C">
+          <input id="multi" type="button" value="*" onclick="this.form.f.value=this.value;this.form.out.value=this.form.in1.value * this.form.in2.value;">
+          <input id="div" type="button" value="/" onclick="this.form.f.value=this.value;this.form.out.value=this.form.in1.value / this.form.in2.value;">
+          <input id="sub" type="button" value="-" onclick="this.form.f.value=this.value;this.form.out.value=this.form.in1.value - this.form.in2.value;">
+          <input id="add" type="button" value="+" onclick="this.form.f.value=this.value;this.form.out.value=Number(this.form.in1.value) + Number(this.form.in2.value);">
+
+        </form>
+
+        <br>
+
+        
+    </main>
+    <footer id="footer">
+        <h3>Nicole Kloster, 12.Zug 2023</h3>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelle</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+      <h1 id="header">Meine eigene Webseite</h1>
+      <nav id="menu">
+          <a class="disabled" href="index.html"> Start</a>
+          <a class="disabled" href="skripte.html"> Skripte </a>
+          <a class="active" href="tabelle.html"> Tabelle </a>
+          <a class="disabled" href="text.html"> Text </a>
+          <a class="disabled" href="post.html"> Post </a>
+          <a class="disabled" href="links.html"> Links </a>
+          <a class="disabled" href="optionen.html"> Optionen </a>
+      </nav>
+  </header>
+    <main id="content">
+        <h2>Tabelle</h2>
+        <h3>Verkaufszahlen von analogen Karten</h3>
+
+        <h4>HTML</h4>
+
+        <table class="tab">
+          <tr>
+            <td>Jahr</td><td>TK25</td><td>TK50</td><td>WK</td><td>Summe</td>
+          </tr>
+          <tr>
+            <td>2010</td><td>200</td><td>300</td><td>100</td><td>600</td>
+          </tr>
+          <tr>
+            <td>2011</td><td>200</td><td>300</td><td>100</td><td>600</td>
+          </tr>
+          <tr>
+            <td>2013</td><td>450</td><td>125</td><td>20</td><td>595</td>
+          </tr>
+          <tr>
+            <td>2014</td><td>400</td><td>150</td><td>150</td><td>700</td>
+          </tr>
+          <tr>
+            <td>2015</td><td>100</td><td>100</td><td>50</td><td>250</td>
+          </tr>
+      </table>
+
+      <h4>JavaScript</h4>
+      
+      <script>
+
+        head= new Array("Jahr","TK25","TK50","WK","Summe");
+        //Länge
+        L= head.length;
+
+
+        tab = new Array();
+        tab [0] = new Array(2010, 200, 300, 100, 0);
+        tab [1] = new Array(2011, 200, 300, 100, 0);
+        tab [2] = new Array(2013, 450, 125, 20, 0);
+        tab [3] = new Array(2014, 400, 150, 150, 0);
+        tab [4] = new Array(2015, 100, 100, 50, 0);
+
+        //Höhe
+        H= tab.length;
+       
+
+        document.write("<table class='tab'>");
+        document.write("<tr>");
+
+
+
+
+
+        for(i=0; i<L; i++){
+          document.write("<td>" + head[i] + "</td>")
+        }
+    
+        document.write("<tr>");
+
+        for(i=0; i<H; i++){
+          
+          document.write("<tr>");
+            for(j=0; j<L; j++){
+              if((j>0) && (j < (L-1))){
+                tab[i][L-1] += tab[i][j];
+              }
+              document.write("<td>" + tab[i][j] + "</td>");
+              }
+          document.write("</tr>");
+        }
+          
+        document.write("</table>");
+
+
+        
+      </script>
+
+      <br style="clear:left;">
+      <br>
+
+    </main>
+    <footer id="footer">
+        <h3>Nicole Kloster, 12.Zug 2023</h3>
+    </footer>
+  </body>
+</html>

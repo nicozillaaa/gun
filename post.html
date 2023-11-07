@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de" class="all">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>start</title>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <header>
+        <h1 id="header">Meine eigene Webseite</h1>
+        <nav id="menu">
+            <a class="diaabled" href="index.html"> Start</a>
+            <a class="disabled" href="skripte.html"> Skripte </a>
+            <a class="disabled" href="tabelle.html"> Tabelle </a>
+            <a class="disabled" href="text.html"> Text </a>
+            <a class="active" href="post.html"> Post </a>
+            <a class="disabled" href="links.html"> Links </a>
+            <a class="disabled" href="optionen.html"> Optionen </a>
+        </nav>
+    </header>
+    <main id="content">
+        <h2>Postverteilung</h2>
+      <table class="post" border='1'>
+          <tr>
+            <td>Poststelle</td>
+          </tr>
+          <tr>
+            <td id="p">-</td>
+          </tr>
+          <tr>
+            <td id="s">0</td>
+          </tr>
+          <tr>
+            <td><button onclick="abholen();">abholen</button></td>
+          </tr>
+      </table>
+      <table class="post" border='1'>
+          <tr>
+            <td>Transport</td>
+          </tr>
+          <tr>
+            <td id="t">-</td>
+          </tr>
+          <tr>
+            <td id="ts">0</td>
+          </tr>
+          <tr>
+            <td><button onclick="verteilen();">verteilen</button></td>
+          </tr>
+      </table>
+      <table class="post" border='1'>
+        <tr>
+          <td id="N0">Riese</td><td id="N1">Zwerg</td>
+        </tr>
+        <tr>
+          <td id="AL0">-</td><td id="AL1">-</td>
+        </tr>
+        <tr>
+          <td id="SO">0</td><td id="S1">0</td>
+        </tr>
+    </table>
+      
+      <br style="clear:left;">
+      <br>
+
+
+     
+
+    <script>
+
+      AL= new Array("Riese", "Zwerg");
+      Stapel = new Array(AL[0], AL[1], AL[1], AL[0], AL[1], AL[1], AL[0], AL[1], AL[1], AL[0],);
+
+      L=Stapel.length;
+
+      document.getElementById("N0").innerHTML=AL[0];
+      document.getElementById("N1").innerHTML=AL[1];
+
+
+      document.getElementById("p").innerHTML="";
+
+      for(i=0; i<L; i++){
+        document.getElementById("p").innerHTML+=(Stapel[i]+"<br>");
+      }
+
+      document.getElementById("s").innerHTML=L;
+
+
+
+
+      
+    function abholen(){
+
+      if(document.getElementById("s").innerHTML != 0){
+
+      document.getElementById("t").innerHTML="";
+
+      for(i=0; i<L; i++){
+        document.getElementById("t").innerHTML+=(Stapel[i]+"<br>");
+      }
+
+      document.getElementById("ts").innerHTML=L;
+
+      document.getElementById("p").innerHTML="-";
+      document.getElementById("s").innerHTML=0;
+     }
+    }
+
+    
+    function verteilen(){
+
+      if(document.getElementById("t").innerHTML != '-');{ 
+
+      document.getElementById("t").innerHTML="-";
+      document.getElementById("ts").innerHTML=0;
+
+      document.getElementById("AL0").innerHTML="";
+      document.getElementById("AL1").innerHTML="";
+
+      SO = 0; S1=0;
+
+      for(i=0; i<L; i++){
+        if(Stapel[i]==AL[0]){
+        document.getElementById("AL0").innerHTML+=Stapel[i]+"<br>";
+        SO += 1;
+        }
+        else{
+        document.getElementById("AL1").innerHTML+=Stapel[i]+"<br>";
+        S1 += 1;
+        }
+      }
+      
+      document.getElementById("SO").innerHTML=SO;
+      document.getElementById("S1").innerHTML=S1;
+    }                    
+    }
+    
+
+    </script>
+
+    </main>
+    <footer id="footer">
+        <h3>Nicole Kloster, 12.Zug 2023</h3>
+    </footer>
+  </body>
+</html>

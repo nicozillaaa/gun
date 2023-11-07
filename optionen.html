@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optionen</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+      <h1 id="header">Meine eigene Webseite</h1>
+      <nav id="menu">
+          <a class="disabled" href="index.html"> Start</a>
+          <a class="disabled" href="skripte.html"> Skripte </a>
+          <a class="disabled" href="tabelle.html"> Tabelle </a>
+          <a class="disabled" href="text.html"> Text </a>
+          <a class="disabled" href="post.html"> Post </a>
+          <a class="disabled" href="links.html"> Links </a>
+          <a class="active" href="optionen.html"> Optionen </a>
+      </nav>
+  </header>
+    <main id="content">
+        <h2>Optionen</h2>
+
+
+    <h3>Objektorienrtierte Programmierung</h3>  
+    <h4>Angaben zur Person</h4>
+      <p id="OUTPUT"></p>
+
+    
+
+    <h3>Raute</h3>
+
+      <script>
+
+      const person= {
+        firstName: "James",
+        lastName: "Bond",
+
+        title: "007",
+
+        now: new Date(),
+        yearOfBirth: 1900,
+
+        zeit: function(val){
+          if(val < 10) val= '0' + val;
+          return val;
+        },
+
+        sayHello: function(){
+          return "My Name is " + this.lastName;
+        },
+
+        fullName: function(){
+          return this.firstName + " " + this.lastName;
+        },
+
+        age: function(){
+          return(this.now.getFullYear() - this.yearOfBirth);
+        },
+
+        bio: function(){
+          return ("Name: " + this.fullName() + "<br>Alter:" + this.age() + "<br>Titel: " + this.title);
+        }
+      };
+
+
+      const me= Object.create(person);
+
+      me.firstName = "Nicole";
+      me.lastName = "Kloster";
+      me.title = "Frau";
+      me.yearOfBirth = 1999;
+
+      me['monthOfBirth'] = 1;
+      me['dayOfBirth'] = 14;
+  
+      me.birthday = function(){
+        return me.zeit(me.dayOfBirth) + "." + me.zeit(me.monthOfBirth) + "." + me.zeit(me.yearOfBirth);
+      }
+
+   
+
+
+
+      console.log(person.yearOfBirth);
+
+      document.getElementById("OUTPUT").innerHTML=person.sayHello();
+      document.getElementById("OUTPUT").innerHTML=person.fullName();
+      document.getElementById("OUTPUT").innerHTML=person.age();
+      document.getElementById("OUTPUT").innerHTML+= "<hr>" + person.bio();
+
+
+
+      document.getElementById("OUTPUT").innerHTML=me.sayHello();
+      document.getElementById("OUTPUT").innerHTML=me.fullName();
+      document.getElementById("OUTPUT").innerHTML=me.age();
+      document.getElementById("OUTPUT").innerHTML+= "<hr>" + me.bio();
+      document.getElementById("OUTPUT").innerHTML+= "<hr>" + me.birthday();
+
+
+
+    function raute( count, sign){
+
+      document.write("<div style= 'text-align:center; font-size: 20px; letter-spacing: 15px;'>");
+     
+     // count= 17;
+      A2= count/2;
+      //sign= "☻";
+
+      for(i=0; i<count; i++){
+
+        if(A2>i){w= i+1;}
+        else    {w= w-1;}
+
+        for(j=1; j<=w; j++){
+          document.write(sign );
+        }
+        document.write("<br>");
+        
+      }
+
+      document.write("</div> <br> <br>");
+
+    } //function raute()
+
+    raute(9, '♥');
+    raute(15, '♥');
+    raute(25, '♥');
+    raute(36, '♥');
+
+
+
+
+
+
+      </script>
+
+<h3>Zahlendiagonale</h3>
+
+<script>
+
+for(i=0; i<=150; i++){
+  ml= i+20;
+  ml= i*5;
+
+  document.write("<div style= 'margin-left: "+ ml + "px;'>" + i + "</div>");
+}
+</script>
+    </main>
+    <footer id="footer">
+        <h3>Nicole Kloster, 12.Zug 2023</h3>
+    </footer>
+  </body>
+</html>
